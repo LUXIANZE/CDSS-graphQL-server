@@ -1,0 +1,23 @@
+{
+  "name": "FirstAPI",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "set NODE_ENV=production&&nodemon",
+    "dev": "set NODE_ENV=development&&nodemon -r esm"
+  },
+  "dependencies": {
+    "apollo-server-express": "^2.14.3",
+    "cors": "^2.8.5",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "graphql": "^15.0.0",
+    "mongoose": "^5.9.18",
+    "nodemon": "^2.0.4"
+  },
+  "devDependencies": {
+    "standard": "^14.3.4",
+    "supervisor": "^0.12.0"
+  }
+}
