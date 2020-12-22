@@ -8,6 +8,7 @@ export default gql`
 
   extend type Mutation {
     addClinician(registerInput: RegisterInput): Clinician!
+    login(staffId: String!, password: String!): Clinician!
     deleteClinician(id: ID!): String!
   }
 

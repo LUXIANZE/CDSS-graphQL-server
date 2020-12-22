@@ -1,11 +1,26 @@
 import mongoose from "mongoose";
 import { UserInputError } from "apollo-server-express";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
-import { validateRegisterInput } from "../utils/validator";
+import { validateRegisterInput, validateLoginInput } from "../utils/validator";
 import { Clinicians, Patients } from "../models";
-import { ENCRYPTION_SALT } from "../config";
+import { ENCRYPTION_SALT, SECRET_KEY } from "../config";
 import CLINICIANS from "../constants/clinicians";
+
+const generateToken = (clinician) => {
+  return jwt.sign(
+    {
+      id: clinician.id,
+      staffId: clinician.staffId,
+      username: clinician.name,
+    },
+    SECRET_KEY,
+    {
+      expiresIn: "1h",
+    }
+  );
+};
 
 export default {
   Query: {
@@ -56,6 +71,9 @@ export default {
         password,
         role: CLINICIANS.BASE,
       });
+
+      const token = generateToken(created_clinician);
+
       return {
         name: created_clinician.name,
         staffId: created_clinician.staffId,
@@ -63,7 +81,31 @@ export default {
         createdAt: created_clinician.createdAt,
         role: created_clinician.role,
         patients: [],
-        token: "123",
+        token: token,
+      };
+    },
+    login: async (root, { staffId, password }, context, info) => {
+      const valid_input = validateLoginInput(staffId, password);
+      if (!valid_input) {
+        throw new UserInputError("Errors in login input");
+      }
+
+      const clinician = await Clinicians.findOne({ staffId });
+      if (!clinician) throw new Exception("User not found");
+
+      const match = await bcrypt.compare(password, clinician.password);
+      if (!match) throw new Exception("Invalid Password");
+
+      const token = generateToken(clinician);
+
+      return {
+        name: clinician.name,
+        staffId: clinician.staffId,
+        id: clinician.id,
+        createdAt: clinician.createdAt,
+        role: clinician.role,
+        patients: [],
+        token: token,
       };
     },
     deleteClinician: (root, { id }, context, info) => {
