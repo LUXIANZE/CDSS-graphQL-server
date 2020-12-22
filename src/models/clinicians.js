@@ -1,11 +1,16 @@
-import mongoose from 'mongoose'
+import mongoose from "mongoose";
 
-const cliniciansSchema = new mongoose.Schema({
-  email: String,
-  name: String,
-  createdAt: String
-}, {
-  timestamps: true
-})
+const cliniciansSchema = new mongoose.Schema(
+  {
+    name: String,
+    staffId: String,
+    password: String,
+    role: String,
+    createdAt: String,
+  },
+  {
+    timestamps: true,
+  }
+);
 
-export default mongoose.model('Clinicians', cliniciansSchema)
+export default mongoose.model("Clinicians", cliniciansSchema);
