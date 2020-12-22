@@ -23,6 +23,7 @@ export default gql`
     name: String!
     staffId: String!
     token: String!
+    role: String!
     createdAt: String!
     patients: [patient]
   }

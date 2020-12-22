@@ -1,6 +1,6 @@
-import clinicians from "../models/clinicians";
+const CLINICIANS = {
+  BASE: "BASE",
+  ADMIN: "ADMIN",
+};
 
-const BASE = "BASE";
-const ADMIN = "ADMIN";
-
-export default clinicians;
+export default CLINICIANS;

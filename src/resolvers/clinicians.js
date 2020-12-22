@@ -5,6 +5,7 @@ import bcrypt from "bcrypt";
 import { validateRegisterInput } from "../utils/validator";
 import { Clinicians, Patients } from "../models";
 import { ENCRYPTION_SALT } from "../config";
+import CLINICIANS from "../constants/clinicians";
 
 export default {
   Query: {
@@ -47,17 +48,20 @@ export default {
 
       // Encrypt and Salt Password
       password = await bcrypt.hash(password, ENCRYPTION_SALT);
+
       // register clinicians
       let created_clinician = await Clinicians.create({
         name,
         staffId,
         password,
+        role: CLINICIANS.BASE,
       });
       return {
         name: created_clinician.name,
         staffId: created_clinician.staffId,
         id: created_clinician.id,
         createdAt: created_clinician.createdAt,
+        role: created_clinician.role,
         patients: [],
         token: "123",
       };
