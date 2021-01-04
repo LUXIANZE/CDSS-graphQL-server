@@ -21,6 +21,11 @@ const patientsSchema = new mongoose.Schema(
       iddm: Boolean,
       niddm: Boolean,
     },
+    socialAndFamilyHistory: {
+      isSmoker: String,
+      alcoholConsumption: String,
+      familyCRCHistory: String,
+    },
     colonoscopyHistory: {
       priorColonoscopy: Boolean,
       noOfPriorColonoscopy: Number,

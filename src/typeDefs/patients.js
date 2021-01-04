@@ -17,6 +17,7 @@ export default gql`
     name: String!
     patientDemographics: patientDemographicsInput
     pastMedicalHistory: pastMedicalHistoryInput
+    socialAndFamilyHistory: socialAndFamilyHistoryInput
     colonoscopyHistory: colonoscopyHistoryInput
     endoscopyReport: endoscopyReportInput
     histologyReport: histologyReporttInput
@@ -28,6 +29,7 @@ export default gql`
     name: String!
     patientDemographics: patientDemographicsInput
     pastMedicalHistory: pastMedicalHistoryInput
+    socialAndFamilyHistory: socialAndFamilyHistoryInput
     colonoscopyHistory: colonoscopyHistoryInput
     endoscopyReport: endoscopyReportInput
     histologyReport: histologyReporttInput
@@ -49,6 +51,12 @@ export default gql`
     copd: Boolean
     iddm: Boolean
     niddm: Boolean
+  }
+
+  input socialAndFamilyHistoryInput {
+    isSmoker: String
+    alcoholConsumption: String
+    familyCRCHistory: String
   }
 
   input colonoscopyHistoryInput {
@@ -82,6 +90,7 @@ export default gql`
     name: String!
     patientDemographics: patientDemographics
     pastMedicalHistory: pastMedicalHistory
+    socialAndFamilyHistory: socialAndFamilyHistory
     colonoscopyHistory: colonoscopyHistory
     endoscopyReport: endoscopyReport
     histologyReport: histologyReportt
@@ -104,6 +113,12 @@ export default gql`
     copd: Boolean
     iddm: Boolean
     niddm: Boolean
+  }
+
+  type socialAndFamilyHistory {
+    isSmoker: String
+    alcoholConsumption: String
+    familyCRCHistory: String
   }
 
   type colonoscopyHistory {
