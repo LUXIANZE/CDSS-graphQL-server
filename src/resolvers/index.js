@@ -3,6 +3,7 @@ import patients from "./patients";
 import pathologyReport from "./pathologyReport";
 import histologyReport from "./histologyReport";
 import decisionSupport from "./decisionSupport";
+import report from "./report";
 
 export default [
   clinicians,
@@ -10,4 +11,5 @@ export default [
   histologyReport,
   pathologyReport,
   decisionSupport,
+  report,
 ];
