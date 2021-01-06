@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "set NODE_ENV=production&&nodemon -r esm",
+    "start": "set NODE_ENV=production&&node -r esm index.js",
     "dev": "set NODE_ENV=development&&nodemon -r esm"
   },
   "dependencies": {
