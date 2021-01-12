@@ -68,6 +68,7 @@ export default gql`
 
   input endoscopyReportInput {
     date: String
+    pdf: String
     qualityOfPreparation: String
     locationOfPolyps: String
     noOfPolyps: String
@@ -78,6 +79,7 @@ export default gql`
 
   input histologyReporttInput {
     polypType: String
+    pdf: String
     sizeOfLargestPolyp: Float
     villousArchitecture: Boolean
     highGradeDysplasia: Boolean
@@ -130,6 +132,7 @@ export default gql`
 
   type endoscopyReport {
     date: String
+    pdf: String
     qualityOfPreparation: String
     locationOfPolyps: String
     noOfPolyps: String
@@ -140,6 +143,7 @@ export default gql`
 
   type histologyReportt {
     polypType: String
+    pdf: String
     sizeOfLargestPolyp: Float
     villousArchitecture: Boolean
     highGradeDysplasia: Boolean

@@ -22,6 +22,7 @@ export default gql`
     mRNNumber: String!
     decision: String!
     isOverride: Boolean!
+    overridePeriod: String!
     reason: String!
   }
 `;

@@ -34,6 +34,7 @@ const patientsSchema = new mongoose.Schema(
     },
     endoscopyReport: {
       date: String,
+      pdf: String,
       qualityOfPreparation: String,
       locationOfPolyps: String,
       noOfPolyps: String,
@@ -43,6 +44,7 @@ const patientsSchema = new mongoose.Schema(
     },
     histologyReport: {
       polypType: String,
+      pdf: String,
       sizeOfLargestPolyp: Number,
       villousArchitecture: Boolean,
       highGradeDysplasia: Boolean,

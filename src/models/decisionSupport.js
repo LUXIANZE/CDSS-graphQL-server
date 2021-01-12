@@ -6,6 +6,7 @@ const decisionSupportSchema = new mongoose.Schema(
     mRNNumber: String,
     decision: String,
     isOverride: Boolean,
+    overridePeriod: String,
     reason: String,
     createdAt: String,
   },
