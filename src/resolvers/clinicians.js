@@ -122,6 +122,25 @@ export default {
         throw new UserInputError(`${id} not found!`);
       }
     },
+    updateClinician: async (root, { staffId, role }, context, info) => {
+      const isValidStaffId = staffId.trim().length > 0;
+      const isValidRole =
+        role.includes(CLINICIANS.ADMIN) || role.includes(CLINICIANS.BASE);
+
+      if (!isValidStaffId || !isValidRole) {
+        return new UserInputError(`${staffId} or ${role} not found!`);
+      }
+
+      let doc = await Clinicians.findOneAndUpdate(
+        { staffId: staffId },
+        { role: role },
+        {
+          new: true,
+        }
+      );
+
+      return doc;
+    },
   },
   Clinician: {
     patients(root, args, context, info) {

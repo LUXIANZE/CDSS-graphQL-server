@@ -10,6 +10,7 @@ export default gql`
     addClinician(registerInput: RegisterInput): Clinician!
     login(staffId: String!, password: String!): Clinician!
     deleteClinician(id: ID!): String!
+    updateClinician(staffId: String!, role: String!): Clinician!
   }
 
   input RegisterInput {
