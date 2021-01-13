@@ -5,6 +5,7 @@ const decisionSupportSchema = new mongoose.Schema(
     staffId: String,
     mRNNumber: String,
     decision: String,
+    overridingDecision: String,
     isOverride: Boolean,
     overridePeriod: String,
     reason: String,

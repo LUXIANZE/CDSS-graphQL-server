@@ -14,6 +14,7 @@ export default gql`
     staffId: String!
     mRNNumber: String!
     decision: String!
+    overridingDecision: String!
     isOverride: Boolean!
     reason: String!
   }
@@ -21,8 +22,8 @@ export default gql`
     staffId: String!
     mRNNumber: String!
     decision: String!
+    overridingDecision: String!
     isOverride: Boolean!
-    overridePeriod: String!
     reason: String!
   }
 `;
